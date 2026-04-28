@@ -82,15 +82,20 @@ public class MonitorClientImpl extends UnicastRemoteObject implements IMonitorCl
       // 1. Basic Identification
       status.hostname = getHostname();
       status.ipAddress = getActiveIp();
+      status.macAddress = getMacAddress(); // Added MAC Address
       status.uuid = hardware.getComputerSystem().getHardwareUUID();
+      status.serialNumber = hardware.getComputerSystem().getSerialNumber(); // Added Serial Number
       status.osName = os.getFamily();
       status.osVersion = os.getVersionInfo().getVersion();
       status.uptimeSecs = os.getSystemUptime();
+      status.lastBootTime = System.currentTimeMillis() / 1000 - status.uptimeSecs; // Added Last Boot Time
 
       // 2. CPU Performance
       status.cpuModel = cpu.getProcessorIdentifier().getName();
       status.cpuLoad = cpu.getSystemCpuLoadBetweenTicks(prevCpuTicks) * 100;
       prevCpuTicks = cpu.getSystemCpuLoadTicks();
+      status.physicalCores = cpu.getPhysicalProcessorCount(); // Added Physical Cores
+      status.logicalProcessors = cpu.getLogicalProcessorCount(); // Added Logical Processors
       status.loadAverage = cpu.getSystemLoadAverage(3);
 
       try {
@@ -109,6 +114,7 @@ public class MonitorClientImpl extends UnicastRemoteObject implements IMonitorCl
 
       // 4. Network, Storage, Battery
       calculateNetworkSpeed(status);
+      status.networkType = detectNetworkType(); // Added Network Type
       calculateStorage(status);
       status.batteryPercentage =
           hardware.getPowerSources().isEmpty()
@@ -269,6 +275,32 @@ public class MonitorClientImpl extends UnicastRemoteObject implements IMonitorCl
         .findFirst()
         .map(n -> n.getIPv4addr()[0])
         .orElse("0.0.0.0");
+  }
+
+  /**
+   * Identifies the MAC address of the primary non-loopback network interface.
+   *
+   * @return the MAC address string
+   */
+  private String getMacAddress() {
+    return hardware.getNetworkIFs().stream()
+        .filter(n -> !n.getMacaddr().isEmpty())
+        .findFirst()
+        .map(NetworkIF::getMacaddr)
+        .orElse("Unknown");
+  }
+
+  /**
+   * Detects the type of the primary active network interface (e.g., Wi-Fi, Ethernet).
+   *
+   * @return the network type string
+   */
+  private String detectNetworkType() {
+    return hardware.getNetworkIFs().stream()
+        .filter(n -> n.getIPv4addr().length > 0)
+        .findFirst()
+        .map(n -> n.getDisplayName().toLowerCase().contains("wi-fi") ? "Wi-Fi" : "Ethernet")
+        .orElse("Unknown");
   }
 
   /** lightweight RMI check. */
