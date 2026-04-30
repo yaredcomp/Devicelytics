@@ -51,13 +51,37 @@
 
 ## 📸 Screenshots
 
-Here are some screenshots of the application in action:
+Here are some screenshots showcasing the key features of Devicelytics in action:
 
-1. ![Screenshot 1](screenshots/1.png)
-2. ![Screenshot 2](screenshots/2.png)
-3. ![Screenshot 3](screenshots/3.png)
-4. ![Screenshot 4](screenshots/4.png)
-5. ![Screenshot 5](screenshots/5.png)
+### 1. Server Dashboard Overview
+
+This screenshot displays the main server dashboard, showing a list of connected devices with their current status, IP addresses, and basic metrics like CPU and RAM usage. It provides a high-level view of the entire monitored network.
+
+![Server Dashboard Overview](screenshots/1.png)
+
+### 2. Device Performance Details
+
+A detailed view of a specific device's performance metrics, including CPU load averages, RAM usage, network throughput, and hardware information such as CPU model and thermal sensors. This helps administrators identify potential bottlenecks.
+
+![Device Performance Details](screenshots/2.png)
+
+### 3. Process Monitoring
+
+This image shows the process monitoring feature, listing the top 5 resource-intensive processes running on a selected device. It includes process names, IDs, CPU usage, and memory consumption for quick identification of performance issues.
+
+![Process Monitoring](screenshots/3.png)
+
+### 4. Remote Terminal Access
+
+Demonstrating the remote management capabilities, this screenshot shows the terminal interface where administrators can execute commands directly on remote clients. The live console supports both Windows CMD and Linux Bash with timestamped command history.
+
+![Remote Terminal Access](screenshots/4.png)
+
+### 5. User Tracking and Network Info
+
+This view highlights security features, displaying active user sessions on devices, unique hardware UUIDs for identification, and network details including connection types (Wi-Fi/Ethernet) and MAC addresses.
+
+![User Tracking and Network Info](screenshots/5.png)
 
 ---
 
