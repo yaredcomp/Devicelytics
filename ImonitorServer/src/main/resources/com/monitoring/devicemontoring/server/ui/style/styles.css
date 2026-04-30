@@ -1,0 +1,155 @@
+/* Modern Font and Base Colors */
+.root {
+    -fx-font-family: 'Segoe UI', sans-serif;
+    -fx-background-color: #f4f6f8;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    -fx-background-color: #2c3e50;
+    -fx-padding: 10;
+}
+
+.sidebar-label {
+    -fx-text-fill: #ecf0f1;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 0 0 0 10;
+}
+
+.sidebar-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #bdc3c7;
+    -fx-alignment: BASELINE_LEFT;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-padding: 10 15;
+    -fx-background-radius: 4;
+    -fx-pref-width: 180;
+}
+
+.sidebar-btn:hover {
+    -fx-background-color: #34495e;
+    -fx-text-fill: white;
+}
+
+.sidebar-btn-active {
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+}
+
+.sidebar-btn-active .sidebar-icon {
+    -fx-icon-color: white;
+}
+
+.sidebar-icon {
+    -fx-icon-color: #bdc3c7;
+    -fx-padding: 0 10 0 0;
+}
+
+.sidebar-btn:hover .sidebar-icon {
+    -fx-icon-color: white;
+}
+
+.icon-btn {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 5;
+}
+
+.icon-btn:hover {
+    -fx-background-color: rgba(255,255,255,0.1);
+    -fx-background-radius: 50%;
+}
+
+/* TableView Styling */
+.table-view {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 0);
+    -fx-background-radius: 5;
+    -fx-border-color: transparent;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: white;
+    -fx-border-color: #ecf0f1;
+    -fx-border-width: 0 0 2 0;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-cell-size: 45px;
+}
+
+.table-row-cell:filled:selected {
+    -fx-background-color: #e8f6f3;
+    -fx-text-fill: black;
+}
+
+.table-row-cell:filled:hover {
+    -fx-background-color: #f2f4f6;
+}
+
+/* Detail View Cards */
+.card {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+    -fx-background-radius: 8;
+    -fx-padding: 20;
+}
+
+.card-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+/* Chart Styling */
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.default-color0.chart-bar {
+    -fx-bar-fill: #3498db;
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke: transparent;
+}
+
+.chart-horizontal-grid-lines {
+    -fx-stroke: #ecf0f1;
+}
+
+.axis-label {
+    -fx-text-fill: #7f8c8d;
+}
+
+.axis {
+    -fx-tick-label-fill: #7f8c8d;
+}
+
+/* Progress Bar Styling */
+.progress-bar {
+    -fx-pref-height: 10;
+    -fx-background-color: #ecf0f1;
+    -fx-background-radius: 5;
+}
+
+.progress-bar .track {
+    -fx-background-color: #ecf0f1;
+    -fx-background-radius: 5;
+}
+
+.progress-bar .bar {
+    -fx-background-radius: 5;
+    -fx-background-insets: 0;
+}
+
+.progress-bar-green .bar { -fx-background-color: #27ae60; }
+.progress-bar-orange .bar { -fx-background-color: #f39c12; }
+.progress-bar-red .bar { -fx-background-color: #e74c3c; }
