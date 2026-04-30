@@ -1,4 +1,4 @@
-# Devicelytics: Enterprise System Monitoring & Analytics
+# Devicelytics: System Monitoring & Analytics
 
 **Devicelytics** is a robust, distributed system monitoring solution designed to provide real-time analytical insights into a fleet of devices. It consists of a lightweight Client agent and a centralized JavaFX-based Server Dashboard.
 
